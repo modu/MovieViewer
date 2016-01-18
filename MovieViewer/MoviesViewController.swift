@@ -33,9 +33,9 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func actualNetworkSessionGet() {
-
+        
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-
+        
         let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
         let url = NSURL(string:"https://api.themoviedb.org/3/movie/now_playing?api_key=\(apiKey)")
         let request = NSURLRequest(URL: url!)
@@ -79,7 +79,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let movies = movies {
-            return movies.count - 1 /*Removing the last entry as poster_path was getting null resulting in app crash . Will fix it later! :) */
+            return movies.count /* - 1 Removing the last entry as poster_path was getting null resulting in app crash . Will fix it later! :) */
         }
         else {
             return 0
@@ -92,26 +92,37 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         let movie = movies![indexPath.row]
         let title = movie["title"] as! String
         let overview = movie["overview"] as! String
-        let poster_path = movie["poster_path"] as! String
-        let baseUrl = "https://image.tmdb.org/t/p/w342"
-        let imageUrl = NSURL(string: baseUrl + poster_path)
         cell.titleLabel.text = title
         cell.overviewLabel.text = overview
-        cell.posterView.setImageWithURL(imageUrl!)
+        let baseUrl = "https://image.tmdb.org/t/p/w342"
+
+        if let poster_path = movie["poster_path"] as? String {
+            let imageUrl = NSURL(string: baseUrl + poster_path)
+            cell.posterView.setImageWithURL(imageUrl!)
+        }
         //cell.textLabel!.text = title
         //print("row \(indexPath.row)")
         return cell
     }
     
     
-    /*
+    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
+        let cellWhoCalled = sender as! UITableViewCell
+        let indexpath = tableView.indexPathForCell(cellWhoCalled)
+        let movie = movies![indexpath!.row]
+        
+        let detailsviewController = segue.destinationViewController as! DetailViewController
+        
+        detailsviewController.movie = movie
+        
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        NSLog(" Prepare for segue ")
     }
-    */
+    
     
 }
