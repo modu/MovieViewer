@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "australian_dollar-25.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "top_rated_5KB50.png",
       "scale" : "2x"
     },
     {

@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [nowPlayingNavigationController, topRatedNavigationController]
-        topRatedNavigationController.tabBarItem.image = UIImage(named: "top_rated_5KB50")
+        topRatedNavigationController.tabBarItem.image = UIImage(named: "australian_dollar-25")
 
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
