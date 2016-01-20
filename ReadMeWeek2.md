@@ -2,15 +2,15 @@
 
 **Move Viewer** is a movies app displaying box office and top rental DVDs using [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-Time spent: **2** hours spent in total
+Time spent: **6** hours spent in total
 Above value have to updated
 ## User Stories
 
 The following **required** functionality is completed:
 
 - [Y] User can view movie details by tapping on a cell.
-- [N] User can select from a tab bar for either **Now Playing** or **Top Rated** movies.
-- [N] Customize the selection effect of the cell.
+- [Y] User can select from a tab bar for either **Now Playing** or **Top Rated** movies.
+- [Y] Customize the selection effect of the cell.
 
 The following **optional** features are implemented:
 
