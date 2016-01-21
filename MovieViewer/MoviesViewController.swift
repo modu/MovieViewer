@@ -108,7 +108,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        NSLog("You selected cell number: \(indexPath.row)!")
+        //NSLog("You selected cell number: \(indexPath.row)!")
         let cell = tableView.dequeueReusableCellWithIdentifier("MovieCell", forIndexPath: indexPath) as! MovieCell
         cell.selectionStyle = .Blue
         
@@ -117,6 +117,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         backgroundView.backgroundColor = UIColor.cyanColor()
         cell.selectedBackgroundView = backgroundView
     }
+    
 //    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
 //        
 //    }
@@ -137,7 +138,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        NSLog(" Prepare for segue ")
+        //NSLog(" Prepare for segue ")
     }
     
     
